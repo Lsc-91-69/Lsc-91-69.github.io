@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>李尚禅 · 记录与原件</title>
+<meta name="description" content="李尚禅（Danny Li），16 岁，高二在读。上海观合医药分子诊断实习（PCR）、助残 AI 智能导盲眼镜项目、ASDAN 商赛三银一金、开源 DSH 插件。每一条都能点开看到原件。">
+<meta name="author" content="李尚禅">
+<meta name="theme-color" content="#F3F0E8">
+<meta property="og:title" content="李尚禅 · 记录与原件">
+<meta property="og:description" content="在中心实验室跑过 PCR，给视障者做了一副会说话的眼镜，也在给 AI 写「少忘事」的插件。每一条都能点开看到原件。">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F3F0E8'/%3E%3Ctext x='32' y='46' font-size='42' font-family='serif' text-anchor='middle' fill='%23171A1C'%3E%E6%9D%8E%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- 图标：自绘，统一 1.5px 描边、圆头端点 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="M3 6.5l9 6.5 9-6.5"/>
+    </symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14.5V19a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h4.5"/>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 6l12 12M18 6L6 18"/>
+    </symbol>
+    <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.5 5.5L8 12l6.5 6.5"/>
+    </symbol>
+    <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9.5 5.5L16 12l-6.5 6.5"/>
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 2.5-.34c.85 0 1.71.12 2.5.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.8-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.59.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/>
+    </symbol>
+    <symbol id="i-note" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18V6.2l9-1.7v11.2"/><circle cx="6.4" cy="18" r="2.6"/><circle cx="15.4" cy="15.7" r="2.6"/>
+    </symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18V6.2l9-1.7v11.2"/><circle cx="6.4" cy="18" r="2.6"/><circle cx="15.4" cy="15.7" r="2.6"/><path d="M3.5 3.5l17 17"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <span class="nav-mark">李尚禅</span>
+    <nav class="nav-links" aria-label="板块导航">
+      <a href="#about">关于</a>
+      <a href="#research">科研与实习</a>
+      <a href="#glasses">导盲眼镜</a>
+      <a href="#opensource">开源</a>
+      <a href="#honors">荣誉</a>
+      <a href="#certs">证书与技能</a>
+      <a href="#contact">联系</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ==================== 首屏：档案页眉 + 原件条 ==================== -->
+  <section class="masthead">
+    <div class="wrap">
+      <div class="fileline">
+        <span>重庆枫叶国际学校</span><span class="sep">/</span>
+        <span>高二在读</span><span class="sep">/</span>
+        <span>16 岁</span><span class="sep">/</span>
+        <span class="mono">lishangchan@qq.com</span><span class="sep">/</span>
+        <span class="mono">github.com/Lsc-91-69</span><span class="sep">/</span>
+        <span class="mono">更新 2026-10-10</span>
+      </div>
+
+      <div class="name-block">
+        <h1 class="name">李尚禅<span class="latin">Danny Li</span></h1>
+        <p class="lede">在中心实验室跑过 PCR，给视障者做了一副会说话的眼镜，也在给 AI 写「少忘事」的插件。</p>
+        <p class="note">下面每一条，都能点开看到原件。</p>
+      </div>
+
+      <div class="strip" aria-label="原件选样">
+        <figure class="plate">
+          <button class="plate-btn" type="button" data-exhibit-ref="medals">
+            <span class="mat"><span class="media"><img src="assets/thumb/medals.jpg" alt="ASDAN 模拟商业挑战的奖牌与参赛胸牌" width="460" height="575"></span></span>
+          </button>
+          <figcaption><span class="fig-no">图 12</span><span>ASDAN 奖牌与胸牌</span></figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate-btn" type="button" data-exhibit-ref="pcr-record">
+            <span class="mat"><span class="media"><img src="assets/thumb/pcr-record.jpg" alt="基础 PCR 实验记录表，含试剂批号与操作人签名" width="460" height="613"></span></span>
+          </button>
+          <figcaption><span class="fig-no">图 03</span><span>基础 PCR 实验记录表</span></figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate-btn" type="button" data-exhibit-ref="letter">
+            <span class="mat"><span class="media"><img src="assets/thumb/letter.jpg" alt="观合医药实习推荐信，中英文两面，带公章" width="460" height="613"></span></span>
+          </button>
+          <figcaption><span class="fig-no">图 02</span><span>观合医药实习推荐信</span></figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate-btn" type="button" data-exhibit-ref="glasses-4">
+            <span class="mat"><span class="media"><img src="assets/thumb/glasses-4.jpg" alt="在焊台上手工焊接控制板与传感模组" width="460" height="613"></span></span>
+          </button>
+          <figcaption><span class="fig-no">图 09</span><span>焊接控制板</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 关于 ==================== -->
+  <section class="section" id="about">
+    <div class="wrap section-grid">
+      <div class="rail">
+        <h2>关于</h2>
+        <dl class="rail-meta">
+          <div><dt>学校</dt><dd>重庆枫叶国际学校 · 班级 10/1</dd></div>
+          <div><dt>在读</dt><dd>高二 · 2025–2026 学年</dd></div>
+          <div><dt>方向</dt><dd>分子诊断实验 / 助残辅具 / 开源工具</dd></div>
+        </dl>
+      </div>
+
+      <div class="main">
+        <div class="split">
+          <div class="prose serif measure">
+            <p>我 16 岁，在重庆枫叶国际学校读高二。</p>
+            <p>2024 年暑假，我在上海观合医药的病毒检测类项目组实习了两周。那是我第一次知道，一个实验结果可信不可信，是由记录撑起来的：每一步都写下来，签上名字和日期，让别人能复核。实验台上的字很丑，但它有用。</p>
+            <p>后来我做的东西都带着这个习惯。给视障者做眼镜，就把它拆成需求、结构、焊接、联调，一段段记；写插件，就把仓库、协议、日期摊开给人看。</p>
+            <p>这个站也一样。它不写形容词，只放原件。</p>
+          </div>
+
+          <figure class="plate js-exhibit" data-exhibit="portrait" data-reveal
+                  data-full="assets/full/portrait.jpg"
+                  data-caption="站主头像。这个站目前只做展示，之后会换回本人照片。"
+                  data-meta="图 01 · 站主头像 · 2026">
+            <button class="plate-btn" type="button">
+              <span class="mat"><span class="media"><img src="assets/plate/portrait.jpg" alt="站主头像：黄色卡通角色" width="900" height="900" loading="lazy"></span></span>
+            </button>
+            <figcaption>
+              <span class="fig-no">图 01</span>
+              <span>站主头像<span class="cap-meta">本站只做展示 · 2026</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 科研与实习 ==================== -->
+  <section class="section" id="research">
+    <div class="wrap section-grid">
+      <div class="rail">
+        <h2>科研与实习</h2>
+        <dl class="rail-meta">
+          <div><dt>机构</dt><dd>上海观合医药科技股份有限公司</dd></div>
+          <div><dt>英文</dt><dd>Teddy Clinical Research Laboratory Limited</dd></div>
+          <div><dt>项目组</dt><dd>病毒检测类项目组</dd></div>
+          <div><dt>时间</dt><dd>2024.07.28 – 08.09</dd></div>
+        </dl>
+      </div>
+
+      <div class="main">
+        <div class="measure">
+          <p class="lede">两周，在中心实验室的分子诊断线上，从配液到跑胶，第一次把课本里的 PCR 做完一整套。</p>
+          <p>观合医药成立于 2016 年，总部在上海，为创新药临床试验做中心实验室检测，有 CAP 认证、临床基因扩增检验实验室和分子诊断平台。我在病毒检测类项目组实习，跟着做样本检测这条线。</p>
+        </div>
+
+        <div class="records">
+          <article class="record">
+            <div>
+              <h3 class="record-title">基础 PCR 扩增</h3>
+              <p class="record-sub">以 NTCP 基因为对象做扩增。用 Platinum SuperFi PCR Master Mix，试剂货号与批号逐条登记；扩增在 ABI 扩增仪上跑。</p>
+            </div>
+            <div class="record-facts">
+              <span class="mono">试剂 12358010 / 批号 2197088</span><br>
+              <span class="mono">仪器 FBNS-0645</span>
+            </div>
+            <div class="record-right"><span class="record-date">2024-07-31</span></div>
+          </article>
+
+          <article class="record">
+            <div>
+              <h3 class="record-title">凝胶电泳与条带分析</h3>
+              <p class="record-sub">PCR 产物跑胶，读胶图，对条带逐条做总结分析——记录表上写的是「对条带进行总结分析」，胶图作为附件。</p>
+            </div>
+            <div class="record-facts"><span class="mono">跑胶 → 读图 → 条带总结</span></div>
+            <div class="record-right"><span class="record-date">2024-07-31</span></div>
+          </article>
+
+          <article class="record">
+            <div>
+              <h3 class="record-title">布板与实验记录</h3>
+              <p class="record-sub">按样本编号排布板表（20240731-LSC-1、LSC-2 等，LSC 是姓名缩写），实验当天由操作人签名、复核人签字。</p>
+            </div>
+            <div class="record-facts"><span class="mono">操作人签名 · 复核人签字</span></div>
+            <div class="record-right"><span class="record-date">2024-07-31</span></div>
+          </article>
+
+          <article class="record">
+            <div>
+              <h3 class="record-title">检测实验记录表</h3>
+              <p class="record-sub">按公司模板填写检测实验记录表，含标准曲线与数据区，手写登记在纸质表上归档。</p>
+            </div>
+            <div class="record-facts"><span class="mono">纸质记录 · 归档</span></div>
+            <div class="record-right"><span class="record-date">2024-07</span></div>
+          </article>
+        </div>
+
+        <blockquote class="quote is-seal">
+          <p>「沉着、专注、对科学实事求是，对未知领域大胆猜想，细心推敲。」</p>
+          <span class="seal seal-inline" aria-hidden="true">
+            <svg viewBox="0 0 100 100" role="presentation" focusable="false">
+              <defs><path id="seal-arc-a" d="M50 50 m-33 0 a33 33 0 1 1 66 0 a33 33 0 1 1 -66 0"/></defs>
+              <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="3.2"/>
+              <circle cx="50" cy="50" r="29" fill="none" stroke="currentColor" stroke-width="1.1"/>
+              <text class="seal-ring-text" fill="currentColor">
+                <textPath href="#seal-arc-a" startOffset="25%" text-anchor="middle">观合医药 · 实习证明</textPath>
+              </text>
+              <path d="M50 40.5l2.9 6.2 6.8.9-5 4.7 1.3 6.7-6-3.2-6 3.2 1.3-6.7-5-4.7 6.8-.9z" fill="currentColor"/>
+            </svg>
+          </span>
+          <p class="attrib">—— 观合医药实习推荐信，2024 年 8 月。原文还写着：愿意向生命科学、化学、生物方向的专业推荐。</p>
+        </blockquote>
+
+        <div class="plates plates-2">
+          <figure class="plate js-exhibit" data-exhibit="letter" data-reveal
+                  data-full="assets/full/letter.jpg"
+                  data-caption="观合医药实习推荐信（Certificate of Internship），中英文两面，盖观合医药公章。实习期 2024 年 7 月 28 日至 8 月 9 日。"
+                  data-meta="图 02 · 推荐信原件 · 2024-08 · 观合医药">
+            <button class="plate-btn" type="button">
+              <span class="mat"><span class="media"><img src="assets/plate/letter.jpg" alt="观合医药实习推荐信原件，中文与英文两面" width="900" height="1200" loading="lazy"></span></span>
+            </button>
+            <figcaption>
+              <span class="fig-no">图 02</span>
+              <span>实习推荐信（中英两面）<span class="cap-meta">观合医药 · 2024-08 · 带公章</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="plate js-exhibit" data-exhibit="pcr-record" data-reveal style="--d:70ms"
+                  data-full="assets/full/pcr-record.jpg"
+                  data-caption="基础 PCR 实验记录表：实验目的是对 NTCP 基因做一次基础 PCR；试剂、仪器、引物、布板、跑胶逐项登记；操作人签名 2024-07-31。"
+                  data-meta="图 03 · 实验记录原件 · 2024-07-31 · 观合医药">
+            <button class="plate-btn" type="button">
+              <span class="mat"><span class="media"><img src="assets/plate/pcr-record.jpg" alt="基础 PCR 实验记录表原件，有手写布板与签名" width="900" height="1200" loading="lazy"></span></span>
+            </button>
+            <figcaption>
+              <span class="fig-no">图 03</span>
+              <span>基础 PCR 实验记录表<span class="cap-meta">NTCP 基因 · 操作人签名 2024-07-31</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="plate js-exhibit" data-exhibit="lab-record-a" data-reveal
+                  data-full="assets/full/lab-record-a.jpg"
+                  data-caption="检测实验记录表（一）：样本信息与检测数据区，手写登记。"
+                  data-meta="图 04 · 实验记录原件 · 2024-07 · 观合医药">
+            <button class="plate-btn" type="button">
+              <span class="mat"><span class="media"><img src="assets/plate/lab-record-a.jpg" alt="检测实验记录表原件，含样本信息与数据区" width="900" height="1200" loading="lazy"></span></span>
+            </button>
+            <figcaption>
+              <span class="fig-no">图 04</span>
+              <span>检测实验记录表（一）<span class="cap-meta">2024-07 · 观合医药</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="plate js-exhibit" data-exhibit="lab-record-b" data-reveal style="--d:70ms"
+                  data-full="assets/full/lab-record-b.jpg"
+                  data-caption="检测实验记录表（二）：含标准曲线、布板信息与操作人、复核人签名。"
+                  data-meta="图 05 · 实验记录原件 · 2024-07 · 观合医药">
+            <button class="plate-btn" type="button">
+              <span class="mat"><span class="media"><img src="assets/plate/lab-record-b.jpg" alt="检测实验记录表原件，含标准曲线与签名" width="900" height="1200" loading="lazy"></span></span>
+            </button>
+            <figcaption>
+              <span class="fig-no">图 05</span>
+              <span>检测实验记录表（二）<span class="cap-meta">标准曲线 · 操作人与复核人签名</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 助残 AI 智能导盲眼镜 ==================== -->
+  <section class="section" id="glasses">
+    <div class="wrap section-grid">
+      <div class="rail">
+        <h2>助残 AI 智能导盲眼镜</h2>
+        <dl class="rail-meta">
+          <div><dt>单位</dt><dd>未来研究所 · 助残创新基地</dd></div>
+          <div><dt>实践</dt><dd>2026.07.06 – 07.12</dd></div>
+          <div><dt>性质</dt><dd>团队项目</dd></div>
+          <div><dt>产出</dt><dd>可穿戴原型机 + 技术文档一套</dd></div>
+        </dl>
+      </div>
+
+      <div class="main">
+        <div class="measure">
+          <p class="lede">盲杖只能碰到杖尖那么远，导盲犬极少，语音提示淹没在车流里。所以这副眼镜要替使用者多长一点感知，然后把判断还回去。</p>
+          <p>视障者出行长期靠三样东西：盲杖、导盲犬、人扶。三样都有结构性的限制。2026 年 7 月，我在未来研究所助残创新基地参加这个团队项目：做一副能感知障碍、能识别交通信号、会说话的可穿戴眼镜。</p>
+        </div>
+
+        <div class="step">
+          <h3><span class="idx">一</span>先把自己弄瞎一次</h3>
+          <div class="measure">
+            <p>实践第一件事不是画图，是戴上滤光眼镜、拿起盲杖，在走廊里走一趟。视野一消失，走廊的纵深、台阶的埋伏、脚步的犹疑，全都变成了教材。随后团队和视障者及其家属做半结构化访谈，把红绿灯的沉默、障碍物的突然、公交线路的不确定一条条记进观察日志，整理成需求优先级矩阵。</p>
+            <p>最后定下三件必须做到的事——近距障碍感知、交通信号识别、语音场景播报，和两条容易被忽略但和性命有关的原则：安全冗余、低噪提示。</p>
+          </div>
+          <div class="plates plates-2">
+            <figure class="plate is-wide js-exhibit" data-exhibit="glasses-1" data-reveal
+                    data-full="assets/full/glasses-1.jpg"
+                    data-caption="需求洞察：成员佩戴滤光眼镜、执盲杖模拟视障出行，随后与视障者及家属做半结构化访谈。"
+                    data-meta="图 06 · 出处：《AI 智能导盲眼镜研发与实践报告》图 1 · 摄影：实践团队">
+              <button class="plate-btn" type="button">
+                <span class="mat"><span class="media"><img src="assets/plate/glasses-1.jpg" alt="成员蒙目持盲杖在会议室内模拟视障出行，旁坐团队记录" width="1000" height="667" loading="lazy"></span></span>
+              </button>
+              <figcaption>
+                <span class="fig-no">图 06</span>
+                <span>蒙目体验与访谈<span class="cap-meta">报告图 1 · 摄影：实践团队</span></span>
+              </figcaption>
+            </figure>
+
+            <figure class="plate js-exhibit" data-exhibit="glasses-2" data-reveal style="--d:70ms"
+                    data-full="assets/full/glasses-2.jpg"
+                    data-caption="项目规划：依据需求矩阵做工作分解结构，拆成需求调研、结构设计、硬件集成、算法部署、整机联调五块，并做可行性论证。"
+                    data-meta="图 07 · 出处：《AI 智能导盲眼镜研发与实践报告》图 2 · 摄影：实践团队">
+              <button class="plate-btn" type="button">
+                <span class="mat"><span class="media"><img src="assets/plate/glasses-2.jpg" alt="两名成员在笔记本电脑前讨论三维模型" width="900" height="1200" loading="lazy"></span></span>
+              </button>
+              <figcaption>
+                <span class="fig-no">图 07</span>
+                <span>方案研讨<span class="cap-meta">报告图 2 · 摄影：实践团队</span></span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3><span class="idx">二</span>从图纸到焊台</h3>
+          <div class="measure">
+            <p>结构环节用三维建模软件做参数化建模：镜腿内腔的走线路径、摄像头支架的视场角、振动马达座与电池仓的力学布局，一件件画、一件件校验。人因工程也反复调——重心配比和夹持压力不对，戴上五分钟就会想摘。</p>
+            <p>然后是焊台。在防静电措施下手焊控制板，把传感模组、微型摄像头、振动马达和锂电池逐点焊装，对照原理图排查虚焊、短路和极性反接。高温烙铁和细密焊盘之间，剩下的全是万用表复测的耐心。</p>
+          </div>
+          <div class="plates plates-2">
+            <figure class="plate js-exhibit" data-exhibit="glasses-3" data-reveal
+                    data-full="assets/full/glasses-3.jpg"
+                    data-caption="三维制图：镜架与挂载组件的参数化建模，屏幕上为镜架装配体与零件清单。"
+                    data-meta="图 08 · 出处：《AI 智能导盲眼镜研发与实践报告》图 3 · 摄影：实践团队">
+              <button class="plate-btn" type="button">
+                <span class="mat"><span class="media"><img src="assets/plate/glasses-3.jpg" alt="笔记本电脑屏幕上的眼镜镜架三维装配模型" width="900" height="1200" loading="lazy"></span></span>
+              </button>
+              <figcaption>
+                <span class="fig-no">图 08</span>
+                <span>参数化建模<span class="cap-meta">报告图 3 · 摄影：实践团队</span></span>
+              </figcaption>
+            </figure>
+
+            <figure class="plate js-exhibit" data-exhibit="glasses-4" data-reveal style="--d:70ms"
+                    data-full="assets/full/glasses-4.jpg"
+                    data-caption="电子焊接：在防静电措施下手工焊接控制板，将传感模组、微型摄像头、振动马达与锂电池逐点焊装。"
+                    data-meta="图 09 · 出处：《AI 智能导盲眼镜研发与实践报告》图 4 · 摄影：实践团队">
+              <button class="plate-btn" type="button">
+                <span class="mat"><span class="media"><img src="assets/plate/glasses-4.jpg" alt="在焊台前戴着手套焊接电路板" width="900" height="1200" loading="lazy"></span></span>
+              </button>
+              <figcaption>
+                <span class="fig-no">图 09</span>
+                <span>焊接控制板<span class="cap-meta">报告图 4 · 摄影：实践团队</span></span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="step">
+          <h3><span class="idx">三</span>装起来，再戴上去</h3>
+          <div class="measure">
+            <p>电路模块嵌进 3D 打印结构件，完成物理装配和电气装配的双重合成。联调阶段逐项验证测距、避障、振动反馈和语音播报的联动逻辑，并实地观察佩戴重心与重量分布；两轮迭代之后，稳定度、贴合度和整机协调性都明显好转，成了一副真能戴的形态。</p>
+            <p>软件这边写了数据采集与推理脚本，封装多模态视觉—语言模型接口，把实时视频流转成语义化的场景描述；语音提示的策略是「听得清、说得少、答得准」，并给低照度、强逆光这类退化场景留了降级预案。</p>
+          </div>
+          <div class="plates plates-2">
+            <figure class="plate js-exhibit" data-exhibit="glasses-5" data-reveal
+                    data-full="assets/full/glasses-5.jpg"
+                    data-caption="整机组装：电路模块与 3D 打印结构件联调，逐项验证远近测距、障碍响应与振动反馈。"
+                    data-meta="图 10 · 出处：《AI 智能导盲眼镜研发与实践报告》图 5 · 摄影：实践团队">
+              <button class="plate-btn" type="button">
+                <span class="mat"><span class="media"><img src="assets/plate/glasses-5.jpg" alt="在桌前检查电路模块与样机零件" width="900" height="1200" loading="lazy"></span></span>
+              </button>
+              <figcaption>
+                <span class="fig-no">图 10</span>
+                <span>整机组装与联调<span class="cap-meta">报告图 5 · 摄影：实践团队</span></span>
+              </figcaption>
+            </figure>
+
+            <figure class="plate js-exhibit" data-exhibit="glasses-6" data-reveal style="--d:70ms"
+                    data-full="assets/full/glasses-6.jpg"
+                    data-caption="成果演示：原型机路演与体验反馈。视障体验者给出的评价是「有帮助、可发展」。"
+                    data-meta="图 11 · 出处：《AI 智能导盲眼镜研发与实践报告》图 6 · 摄影：实践团队">
+              <button class="plate-btn" type="button">
+                <span class="mat"><span class="media"><img src="assets/plate/glasses-6.jpg" alt="为体验者佩戴并调整原型眼镜，屏幕上显示三维模型" width="900" height="1200" loading="lazy"></span></span>
+              </button>
+              <figcaption>
+                <span class="fig-no">图 11</span>
+                <span>原型机路演与体验反馈<span class="cap-meta">报告图 6 · 摄影：实践团队</span></span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom:14px;font-size:20px">原型机参数（报告实测）</h3>
+          <dl class="specs">
+            <div><dt>整机净重</dt><dd>≈ 180 <span>g</span></dd></div>
+            <div><dt>近距障碍识别准确率</dt><dd>91 <span>%</span></dd></div>
+            <div><dt>单次响应延迟</dt><dd>&lt; 300 <span>ms</span></dd></div>
+            <div><dt>连续续航</dt><dd>≈ 4 <span>h</span></dd></div>
+            <div><dt>核心功能</dt><dd><span>遇障检测 / 交通信号识别 / 场景语义播报</span></dd></div>
+            <div><dt>技术路线</dt><dd><span>轻量化双目结构 + 边缘视觉推理 + 云边协同多模态大模型</span></dd></div>
+          </dl>
+        </div>
+
+        <blockquote class="quote">
+          <p>「技术关怀的本质，不是替使用者看见，而是把判断力交还给他们自己。」</p>
+          <p class="attrib">—— 实践报告结语。上面六张照片拍的是我参与的环节：需求调研、三维建模、焊接、整机联调。</p>
+        </blockquote>
+
+        <blockquote class="quote quote-en">
+          <p>Silent world,<br>audible hope.</p>
+          <p class="attrib">—— 报告英文副题：<span class="mono">TECHNOLOGY FOR THE SIGHTLESS</span></p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 开源作品 ==================== -->
+  <section class="section" id="opensource">
+    <div class="wrap section-grid">
+      <div class="rail">
+        <h2>开源作品</h2>
+        <dl class="rail-meta">
+          <div><dt>账号</dt><dd>GitHub @Lsc-91-69</dd></div>
+          <div><dt>公开仓库</dt><dd>4 个</dd></div>
+          <div><dt>数据</dt><dd>GitHub API，抓取于 2026-10-10</dd></div>
+        </dl>
+      </div>
+
+      <div class="main">
+        <div class="measure">
+          <p class="lede">从 2026 年 8 月开始给 DeepSeek Harness 写插件。写的都是自己每天要用到的东西：任务调度、上下文压缩、记忆分层。</p>
+          <p>碰到重复劳动就顺手做成插件，做完就开源。下面的 star 数是抓取当天的真实值，没有挑好看的写。</p>
+        </div>
+
+        <div class="records">
+          <article class="record">
+            <div>
+              <h3 class="record-title"><span class="repo">dsh-brain-compaction</span></h3>
+              <p class="record-sub">人脑式上下文压缩：长任务的上下文占用与 token 消耗都能大幅降下来。</p>
+              <div class="chips">
+                <span class="chip is-lab">context-compression</span><span class="chip is-lab">token-saving</span><span class="chip is-lab">selective-forgetting</span><span class="chip is-lab">llm-optimization</span>
+              </div>
+            </div>
+            <div class="record-facts"><span class="mono">JavaScript</span> · <span class="mono">MIT</span> · <span class="mono">★ 2</span></div>
+            <div class="record-right">
+              <span class="record-date">2026-08</span>
+              <span class="record-links">
+                <a class="icon-btn is-lab" href="https://github.com/Lsc-91-69/dsh-brain-compaction" target="_blank" rel="noopener noreferrer">仓库<svg class="icon"><use href="#i-external"/></svg></a>
+              </span>
+            </div>
+          </article>
+
+          <article class="record">
+            <div>
+              <h3 class="record-title"><span class="repo">dsh-tri-layer-memory</span></h3>
+              <p class="record-sub">三层记忆压缩引擎：L1 工作记忆 / L2 短期摘要 / L3 深层持久化，按需召回。</p>
+            </div>
+            <div class="record-facts"><span class="mono">JavaScript</span> · <span class="mono">MIT</span> · <span class="mono">★ 0</span></div>
+            <div class="record-right">
+              <span class="record-date">2026-10</span>
+              <span class="record-links">
+                <a class="icon-btn is-lab" href="https://github.com/Lsc-91-69/dsh-tri-layer-memory" target="_blank" rel="noopener noreferrer">仓库<svg class="icon"><use href="#i-external"/></svg></a>
+              </span>
+            </div>
+          </article>
+
+          <article class="record">
+            <div>
+              <h3 class="record-title"><span class="repo">dsh-live2d-avatar</span></h3>
+              <p class="record-sub">把 Live2D 模型变成桌面宠物，实时显示 Agent 的状态和内心想法。</p>
+            </div>
+            <div class="record-facts"><span class="mono">JavaScript</span> · <span class="mono">MIT</span> · <span class="mono">★ 1</span></div>
+            <div class="record-right">
+              <span class="record-date">2026-10</span>
+              <span class="record-links">
+                <a class="icon-btn is-lab" href="https://github.com/Lsc-91-69/dsh-live2d-avatar" target="_blank" rel="noopener noreferrer">仓库<svg class="icon"><use href="#i-external"/></svg></a>
+              </span>
+            </div>
+          </article>
+
+          <article class="record">
+            <div>
+              <h3 class="record-title"><span class="repo">dsh-task-scheduler</span></h3>
+              <p class="record-sub">峰谷计价的任务调度：发消息时问「立即还是稍后」，低价时段到点自动投递；会话内任务列表可改时间或立即执行。</p>
+            </div>
+            <div class="record-facts"><span class="mono">JavaScript</span> · <span class="mono">未声明协议</span> · <span class="mono">★ 1</span></div>
+            <div class="record-right">
+              <span class="record-date">2026-08</span>
+              <span class="record-links">
+                <a class="icon-btn is-lab" href="https://github.com/Lsc-91-69/dsh-task-scheduler" target="_blank" rel="noopener noreferrer">仓库<svg class="icon"><use href="#i-external"/></svg></a>
+              </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 荣誉 ==================== -->
+  <section class="section" id="honors">
+    <div class="wrap section-grid">
+      <div class="rail">
+        <h2>荣誉</h2>
+        <dl class="rail-meta">
+          <div><dt>赛事</dt><dd>ASDAN 模拟商业挑战（阿思丹）</dd></div>
+          <div><dt>赛季</dt><dd>2024–25 · Company 11</dd></div>
+          <div><dt>晋级</dt><dd>亚洲赛 Asia Business Simulation</dd></div>
+        </dl>
+      </div>
+
+      <div class="main">
+        <div class="split">
+          <div class="measure">
+            <p class="lede">三枚银牌，一枚金牌。以 Company 11 的身份进入亚洲赛。</p>
+            <p>ASDAN（阿思丹）模拟商业挑战是一场商业模拟：参赛者组成公司，在有限轮次里做定价、产能、市场与现金流的决策，最后按经营结果排名。2024–25 赛季，我作为重庆枫叶国际学校 Company 11 的成员参赛，拿到三枚银牌和一枚金牌，并晋级亚洲赛。</p>
+            <p>这一段和实验室那两周是同一种训练：在信息不全的时候做判断，然后为判断负责。</p>
+          </div>
+
+          <figure class="plate js-exhibit" data-exhibit="medals" data-reveal
+                  data-full="assets/full/medals.jpg"
+                  data-caption="ASDAN 模拟商业挑战的奖牌与参赛胸牌。胸牌上写着：2024–25 Asia Business Simulation，COMPANY 11，SHANGCHAN LI，Maple Leaf International School - Chongqing。"
+                  data-meta="图 12 · 奖牌与胸牌原件 · 2024–25 赛季">
+            <button class="plate-btn" type="button">
+              <span class="mat"><span class="media"><img src="assets/plate/medals.jpg" alt="ASDAN 奖牌（金牌与银牌）与参赛胸牌" width="900" height="1125" loading="lazy"></span></span>
+            </button>
+            <figcaption>
+              <span class="fig-no is-seal">图 12</span>
+              <span>ASDAN 奖牌与胸牌<span class="cap-meta">2024–25 · Company 11 · 亚洲赛</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 证书与技能 ==================== -->
+  <section class="section" id="certs">
+    <div class="wrap section-grid">
+      <div class="rail">
+        <h2>证书与技能</h2>
+        <dl class="rail-meta">
+          <div><dt>颁发</dt><dd>无锡市急救协会（优恩分中心）</dd></div>
+          <div><dt>培训</dt><dd>2024-08-04 · 主讲导师 丁红彪</dd></div>
+          <div><dt>发证</dt><dd>2024-08-14 · 编号 2024GJ4C002</dd></div>
+        </dl>
+      </div>
+
+      <div class="main">
+        <div class="records">
+          <article class="record">
+            <div>
+              <h3 class="record-title">现场急救课程培训证书</h3>
+              <p class="record-sub">参加《心肺复苏及自动体外除颤仪（AED）使用课程》与《创伤救护课程》线下普及课程培训并考核合格。培训地点在无锡市菱湖大道 97 号观合药业——就是实习那家公司的实验室楼里。</p>
+            </div>
+            <div class="record-facts">
+              <span class="seal seal-row" aria-hidden="true">
+                <svg viewBox="0 0 100 100" role="presentation" focusable="false">
+                  <defs><path id="seal-arc-b" d="M50 50 m-33 0 a33 33 0 1 1 66 0 a33 33 0 1 1 -66 0"/></defs>
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="3.2"/>
+                  <circle cx="50" cy="50" r="29" fill="none" stroke="currentColor" stroke-width="1.1"/>
+                  <text class="seal-ring-text" fill="currentColor">
+                    <textPath href="#seal-arc-b" startOffset="25%" text-anchor="middle">无锡市急救协会 · 救护培训</textPath>
+                  </text>
+                  <path d="M50 40.5l2.9 6.2 6.8.9-5 4.7 1.3 6.7-6-3.2-6 3.2 1.3-6.7-5-4.7 6.8-.9z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span class="mono">证书编号 2024GJ4C002</span><br>
+              <span class="mono">Training Certificate for On-site First Aid Curriculum</span>
+            </div>
+            <div class="record-right">
+              <span class="record-date">2024-08-14</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="split">
+          <figure class="plate js-exhibit" data-exhibit="firstaid" data-reveal
+                  data-full="assets/full/firstaid.jpg"
+                  data-caption="现场急救课程培训证书：心肺复苏及自动体外除颤仪（AED）使用、创伤救护；无锡市急救协会（优恩分中心）颁发，盖协会公章。证书原件标注有效期至 2025-04-05。"
+                  data-meta="图 13 · 证书原件 · 2024-08-14 · 无锡市急救协会">
+            <button class="plate-btn" type="button">
+              <span class="mat"><span class="media"><img src="assets/plate/firstaid.jpg" alt="现场急救课程培训证书原件，带协会公章" width="1000" height="667" loading="lazy"></span></span>
+            </button>
+            <figcaption>
+              <span class="fig-no is-seal">图 13</span>
+              <span>急救课程培训证书<span class="cap-meta">无锡市急救协会 · 2024-08-14 发证</span></span>
+            </figcaption>
+          </figure>
+
+          <div>
+            <h3 style="margin-bottom:12px;font-size:20px">会做的事</h3>
+            <dl class="skills">
+              <div class="skill"><dt>分子生物学实验</dt><dd>PCR 扩增、凝胶电泳与条带分析、样本布板</dd></div>
+              <div class="skill"><dt>实验室规范</dt><dd>按模板登记试剂货号与批号、仪器编号、操作人与复核人签名</dd></div>
+              <div class="skill"><dt>三维建模与结构设计</dt><dd>参数化建模、装配与走线校验（导盲眼镜镜架与挂载组件）</dd></div>
+              <div class="skill"><dt>电子工艺</dt><dd>手工焊接控制板、传感模组与电池装配、万用表复测</dd></div>
+              <div class="skill"><dt>编程</dt><dd>JavaScript；DeepSeek Harness 插件开发（4 个开源仓库）</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 联系 ==================== -->
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <h2>如果要做的事和生命科学、辅助技术、开发者工具有关，写信给我。</h2>
+      <a class="contact-mail" href="mailto:lishangchan@qq.com">lishangchan@qq.com</a>
+      <div class="contact-actions">
+        <a class="icon-btn" href="https://github.com/Lsc-91-69" target="_blank" rel="noopener noreferrer">
+          <svg class="icon"><use href="#i-github"/></svg>github.com/Lsc-91-69
+        </a>
+        <a class="icon-btn" href="mailto:lishangchan@qq.com">
+          <svg class="icon"><use href="#i-mail"/></svg>写邮件
+        </a>
+        <span class="identity">
+          <img src="assets/brand/avatar-160.png" alt="李尚禅在 GitHub 上使用的头像" width="44" height="44">
+          <span>GitHub 头像 · <span class="mono">@Lsc-91-69</span></span>
+        </span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <h3>关于本站</h3>
+      <p>站上的实验记录表、推荐信、证书、奖牌与现场照片都由本人提供，未做修图；GitHub 数据抓取于 2026-10-10；观合医药的机构信息来自其官网。</p>
+      <p>页面里 13 张原件都能点开放大读细节，键盘 <span class="mono">← →</span> 翻页、<span class="mono">Esc</span> 关闭。</p>
+    </div>
+    <div>
+      <h3>字体</h3>
+      <p>中文使用系统字体（Noto Serif SC / Noto Sans SC 等）。拉丁标题 Instrument Serif、等宽 JetBrains Mono 为自托管 OFL 字体。</p>
+    </div>
+    <div>
+      <h3>更新</h3>
+      <p class="mono">2026-10-10</p>
+      <p><a class="link" href="#top">回到顶部</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== 背景音乐（右下角开关，点了才播） ==================== -->
+<div class="music" id="music">
+  <audio id="music-audio" preload="none"></audio>
+  <button class="music-btn" type="button" id="music-toggle" aria-pressed="false" aria-label="背景音乐开关">
+    <svg class="icon" aria-hidden="true"><use href="#i-mute" id="music-icon-use"/></svg>
+    <span class="music-text">背景音乐</span>
+  </button>
+  <p class="music-now" id="music-now" hidden></p>
+</div>
+
+<!-- ==================== 原件查看器 ==================== -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="原件查看器" data-open="false" hidden>
+  <div class="viewer-bar">
+    <span class="viewer-count" id="viewer-count">1 / 13</span>
+    <button class="viewer-close" type="button" id="viewer-close">
+      关闭<svg class="icon"><use href="#i-close"/></svg>
+    </button>
+  </div>
+  <div class="viewer-stage">
+    <button class="viewer-nav" type="button" data-dir="prev" id="viewer-prev" aria-label="上一张">
+      <svg class="icon"><use href="#i-left"/></svg>
+    </button>
+    <img id="viewer-img" src="" alt="">
+    <button class="viewer-nav" type="button" data-dir="next" id="viewer-next" aria-label="下一张">
+      <svg class="icon"><use href="#i-right"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- 画面里不出现配文；图注与来源只读给屏幕阅读器 -->
+<p class="visually-hidden" id="viewer-sr" aria-live="polite"></p>
+
+<script src="app.js" defer></script>
+</body>
+</html>
