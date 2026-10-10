@@ -33,8 +33,14 @@ lishangchan-site/
 │  └─ fonts/           Instrument Serif + JetBrains Mono（OFL，附许可文件）
 ├─ PRODUCT.md          这个站是给谁看的、目标是什么、内容真实性来源表
 ├─ DESIGN.md           设计决策记录：设计读法、令牌、质量底线执行、偏离与原因、验证记录
+├─ _config.yml         GitHub Pages 构建配置：把上面三份文档排除在发布内容之外
 └─ README.md           本文件
 ```
+
+> **`_config.yml` 是干什么的**：站点发布时，只有 `index.html`、`styles.css`、`app.js`、`assets/` 会被发布。
+> `PRODUCT.md` / `DESIGN.md` / `README.md` 留在仓库里（GitHub 上照样能看），但**不会被发布成网页**——
+> 否则任何人都能直接访问 `https://lsc-91-69.github.io/DESIGN.md` 读到设计笔记和待确认清单。
+> 要改发布范围，编辑 `_config.yml` 的 `exclude` 列表。
 
 ## 怎么改内容
 

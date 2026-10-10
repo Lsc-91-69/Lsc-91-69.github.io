@@ -1,0 +1,17 @@
+# GitHub Pages 用 Jekyll 构建。这个文件决定「哪些文件会发布到 lsc-91-69.github.io」。
+#
+# 下面三份文档仍然在仓库里（在 GitHub 上照样能读、能看历史），
+# 但不会被发布成网页 —— 因为它们写的是设计决策、内容真实性来源表和「待确认清单」，
+# 属于给自己看的资料，不是站点内容。
+#
+# 注意：Jekyll 的 exclude 会「替换」默认排除列表，所以默认项也一并写在这里。
+exclude:
+  - DESIGN.md
+  - PRODUCT.md
+  - README.md
+  - _config.yml
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
