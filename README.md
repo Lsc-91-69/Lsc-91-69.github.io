@@ -78,6 +78,32 @@ lishangchan-site/
 
 > 全部是静态文件，不需要构建步骤，也不需要 Node。
 
+## 中英双语
+
+导航右上角有「中 / EN」开关，点一下整站换语言，选择记在浏览器里（`localStorage` 的 `lsc-lang`），
+下次打开还是上次那个。**第一次来的访客**：浏览器语言不是中文就直接显示英文，省一步点击。
+
+**中文写在元素里，英文写在属性上**，两种语言挨着放，改的时候不用跳文件：
+
+| 属性 | 管什么 | 例子 |
+|---|---|---|
+| `data-en` | 元素里的文字（可以嵌 HTML，用来保留 `<span class="mono">` 这类标记） | `<h2 data-en="About">关于</h2>` |
+| `data-en-alt` | 图片的 `alt` | `<img alt="奖牌" data-en-alt="Medals">` |
+| `data-en-aria` | `aria-label`（读屏用） | `<nav aria-label="板块导航" data-en-aria="Section navigation">` |
+| `data-en-caption` / `data-en-meta` | 查看器里只读给屏幕阅读器的图注与出处 | 写在 `<figure class="js-exhibit">` 上 |
+
+**加一句新的双语文案**：中文照常写，再挂一个 `data-en` 属性就行。
+
+```html
+<p data-en="I am 16, in Grade 11.">我 16 岁，读高二。</p>
+```
+
+**几处刻意不翻译**：左上角品牌字「李尚禅」、背景音乐的曲名（曲名在 `app.js` 的 `TRACKS` 里用
+`titleEn` 单独写）、姓名区（英文模式下 `Danny Li` 变大标题、中文名缩成小注，靠 `styles.css`
+里的 `html[lang="en"] .name` 两条规则实现，不是换文字）。
+
+> 写英文属性时的两个坑：属性里的 `&` 要写成 `&amp;`；要在属性里嵌 HTML，双引号写成 `&quot;`。
+
 ## 背景音乐
 
 右下角有个开关，**点一下才开始播**——浏览器本来就禁止网页自动出声，所以默认是关的，这是设计不是故障。
