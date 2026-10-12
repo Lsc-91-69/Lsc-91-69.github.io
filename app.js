@@ -6,12 +6,14 @@
    4. 原件查看器（画面里只有图，配文只读给屏幕阅读器）
    5. 深链 #exhibit-*
    6. 导航当前板块
+   7. 中英切换（中文写在页面元素里，英文放在 data-en / data-en-alt / data-en-aria 上）
    没有依赖，没有构建。
    ========================================================================== */
 (function () {
   'use strict';
 
   var reduceMotion = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  var langHooks = [];   // 语言切换后需要跟着刷新的地方，各模块自己注册
 
   /* ---------------- 1. 原件「上版」 ----------------
      不用 IntersectionObserver，也不用 requestAnimationFrame 节流：
@@ -111,10 +113,10 @@
      浏览器禁止自动出声，所以默认不播；右下角开关点一下才开始。
      audio 上写了 preload="none"：不点开关就一个字节都不下载。 */
   var TRACKS = [
-    { src: 'assets/audio/daotangzhu.mp3', title: '捣唐猪（整完版）' },
-    { src: 'assets/audio/tangtumengjin.mp3', title: '糖突猛进 · 路人乐队的组成方法' },
-    { src: 'assets/audio/haotang-xiongdi.mp3', title: '好唐，兄弟' },
-    { src: 'assets/audio/shuizhao.mp3', title: '听完能睡着的是神' }
+    { src: 'assets/audio/daotangzhu.mp3', title: '捣唐猪（整完版）', titleEn: 'Daotangzhu (final cut)' },
+    { src: 'assets/audio/tangtumengjin.mp3', title: '糖突猛进 · 路人乐队的组成方法', titleEn: 'Tang Tu Meng Jin · how a band of passers-by forms' },
+    { src: 'assets/audio/haotang-xiongdi.mp3', title: '好唐，兄弟', titleEn: 'Nice one, bro' },
+    { src: 'assets/audio/shuizhao.mp3', title: '听完能睡着的是神', titleEn: 'Sleep through this and you are a legend' }
   ];
   var musicAudio = document.getElementById('music-audio');
   var musicBtn = document.getElementById('music-toggle');
@@ -158,6 +160,12 @@
       }, FADE_STEP);
     }
 
+    function trackTitle(i) {
+      var t = TRACKS[i];
+      if (!t) return '';
+      return (document.documentElement.getAttribute('lang') === 'en' && t.titleEn) ? t.titleEn : t.title;
+    }
+
     function nextTrack() {
       if (!queue.length) shuffleQueue();
       var i = queue.shift();
@@ -165,7 +173,7 @@
       currentTrack = i;
       musicAudio.src = TRACKS[i].src;
       musicAudio.volume = 0;
-      if (musicNow) { musicNow.textContent = TRACKS[i].title; musicNow.hidden = false; }
+      if (musicNow) { musicNow.textContent = trackTitle(i); musicNow.hidden = false; }
       var p = musicAudio.play();
       if (p && p.catch) p.catch(function () { stopMusic(); });
       fadeTo(MUSIC_VOLUME);
@@ -206,9 +214,79 @@
     musicAudio.addEventListener('ended', function () { if (playing) nextTrack(); });
     // 某一段加载失败就跳过，别让播放列表卡死
     musicAudio.addEventListener('error', function () { if (playing) nextTrack(); });
+
+    // 切语言时曲名跟着换
+    langHooks.push(function () {
+      if (musicNow && !musicNow.hidden && currentTrack > -1) musicNow.textContent = trackTitle(currentTrack);
+    });
   }
 
-  /* ---------------- 4. 原件查看器 ---------------- */
+  /* ---------------- 4. 中英切换 ----------------
+     中文写在页面元素里（没有 JS 时的默认语言），英文放在 data-en / data-en-alt /
+     data-en-aria 上，两种语言挨着放，改的时候不用跳文件。切换只换文字、不动结构，
+     所以查看器、进场动效、视差都不受影响。选择记在 localStorage，下次自动生效。 */
+  var LANG_KEY = 'lsc-lang';
+  var META_TEXT = {
+    zh: {
+      title: '李尚禅 · 记录与原件',
+      desc: '李尚禅（Danny Li），16 岁，高二在读。上海观合医药分子诊断实习（PCR）、助残 AI 智能导盲眼镜项目、ASDAN 商赛三银一金、开源 DSH 插件。每一条都能点开看到原件。',
+      ogTitle: '李尚禅 · 记录与原件',
+      ogDesc: '在中心实验室跑过 PCR，给视障者做了一副会说话的眼镜，也在给 AI 写「少忘事」的插件。每一条都能点开看到原件。'
+    },
+    en: {
+      title: 'Danny Li · Records & Originals',
+      desc: 'Danny Li (Li Shangchan), 16, Grade 11. Molecular diagnostics internship at a Shanghai central laboratory (PCR), an AI guide-glasses project for visually impaired people, three silvers and a gold at ASDAN Business Simulation, and open-source DeepSeek Harness plugins. Every item opens to its original document.',
+      ogTitle: 'Danny Li · Records & Originals',
+      ogDesc: 'I have run PCR in a central laboratory, built a pair of talking glasses for visually impaired people, and I write plugins that help AI forget less. Every item opens to its original document.'
+    }
+  };
+  var i18nText = Array.prototype.slice.call(document.querySelectorAll('[data-en]'));
+  var i18nAlt = Array.prototype.slice.call(document.querySelectorAll('[data-en-alt]'));
+  var i18nAria = Array.prototype.slice.call(document.querySelectorAll('[data-en-aria]'));
+  var langBtns = Array.prototype.slice.call(document.querySelectorAll('.lang-btn'));
+
+  function langIs() { return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'zh'; }
+
+  function setLang(lang, remember) {
+    var en = lang === 'en';
+    var i, el;
+    for (i = 0; i < i18nText.length; i++) {
+      el = i18nText[i];
+      if (el.__zh === undefined) el.__zh = el.innerHTML;
+      el.innerHTML = en ? el.getAttribute('data-en') : el.__zh;
+    }
+    for (i = 0; i < i18nAlt.length; i++) {
+      el = i18nAlt[i];
+      if (el.__zhAlt === undefined) el.__zhAlt = el.getAttribute('alt') || '';
+      el.setAttribute('alt', en ? el.getAttribute('data-en-alt') : el.__zhAlt);
+    }
+    for (i = 0; i < i18nAria.length; i++) {
+      el = i18nAria[i];
+      if (el.__zhAria === undefined) el.__zhAria = el.getAttribute('aria-label') || '';
+      el.setAttribute('aria-label', en ? el.getAttribute('data-en-aria') : el.__zhAria);
+    }
+    document.documentElement.setAttribute('lang', en ? 'en' : 'zh-CN');
+    var m = META_TEXT[en ? 'en' : 'zh'];
+    document.title = m.title;
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', m.desc);
+    meta = document.querySelector('meta[property="og:title"]');
+    if (meta) meta.setAttribute('content', m.ogTitle);
+    meta = document.querySelector('meta[property="og:description"]');
+    if (meta) meta.setAttribute('content', m.ogDesc);
+    for (i = 0; i < langBtns.length; i++) {
+      langBtns[i].setAttribute('aria-pressed', String(langBtns[i].getAttribute('data-lang') === (en ? 'en' : 'zh')));
+    }
+    for (i = 0; i < langHooks.length; i++) langHooks[i]();
+    if (remember) { try { localStorage.setItem(LANG_KEY, en ? 'en' : 'zh'); } catch (e) {} }
+  }
+
+  for (var lb = 0; lb < langBtns.length; lb++) {
+    langBtns[lb].addEventListener('click', function () { setLang(this.getAttribute('data-lang'), true); });
+  }
+  setLang(langIs(), false);
+
+  /* ---------------- 5. 原件查看器 ---------------- */
   var exhibits = Array.prototype.slice.call(document.querySelectorAll('.js-exhibit'));
   var viewer = document.getElementById('viewer');
   if (!viewer || !exhibits.length) return;
@@ -225,11 +303,12 @@
   function exhibitData(i) {
     var el = exhibits[i];
     var img = el.querySelector('img');
+    var en = document.documentElement.getAttribute('lang') === 'en';
     return {
       src: el.getAttribute('data-full'),
       alt: img ? img.getAttribute('alt') : '',
-      caption: el.getAttribute('data-caption') || '',
-      meta: el.getAttribute('data-meta') || ''
+      caption: (en && el.getAttribute('data-en-caption')) || el.getAttribute('data-caption') || '',
+      meta: (en && el.getAttribute('data-en-meta')) || el.getAttribute('data-meta') || ''
     };
   }
 
@@ -244,6 +323,9 @@
   }
 
   function isOpen() { return viewer.getAttribute('data-open') === 'true'; }
+
+  // 查看器开着的时候切语言，读屏文案要跟着换
+  langHooks.push(function () { if (isOpen()) show(current); });
 
   function open(i) {
     lastFocus = document.activeElement;
@@ -311,7 +393,7 @@
     }
   });
 
-  /* ---------------- 5. 深链：index.html#exhibit-letter 直接打开某张原件 ---------------- */
+  /* ---------------- 6. 深链：index.html#exhibit-letter 直接打开某张原件 ---------------- */
   function openFromHash() {
     var m = /^#exhibit-(.+)$/.exec(window.location.hash || '');
     if (!m) return;
@@ -322,7 +404,7 @@
   window.addEventListener('hashchange', openFromHash);
   openFromHash();
 
-  /* ---------------- 6. 导航当前板块 ---------------- */
+  /* ---------------- 7. 导航当前板块 ---------------- */
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
   var sections = navLinks.map(function (a) {
     var href = a.getAttribute('href') || '';

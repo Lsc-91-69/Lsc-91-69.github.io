@@ -202,7 +202,7 @@ p + p { margin-top: 1.05em; }
 .nav-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 20px;
   height: 60px;
 }
@@ -218,6 +218,7 @@ p + p { margin-top: 1.05em; }
   align-items: center;
   gap: clamp(14px, 2vw, 28px);
   overflow-x: auto;
+  margin-left: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -244,6 +245,34 @@ p + p { margin-top: 1.05em; }
 .nav-links a:hover::after { transform: scaleX(1); }
 .nav-links a[aria-current="true"] { color: var(--ink); }
 .nav-links a[aria-current="true"]::after { transform: scaleX(1); }
+
+/* ---------- 语言开关（中 / EN） ---------- */
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: none;
+  margin-left: clamp(10px, 1.4vw, 18px);
+  padding: 2px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--paper-2);
+}
+.lang-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  line-height: 1.5;
+  padding: 3px 7px;
+  border: 0;
+  border-radius: 2px;
+  background: none;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: color 140ms var(--ease), background 140ms var(--ease);
+}
+.lang-btn:hover { color: var(--ink); }
+.lang-btn[aria-pressed="true"] { color: var(--paper-2); background: var(--ink); }
 
 /* ---------- 首屏：页眉式，不是居中大标题 ---------- */
 .masthead { padding: clamp(34px, 5vw, 60px) 0 clamp(48px, 6vw, 76px); }
@@ -276,6 +305,21 @@ p + p { margin-top: 1.05em; }
   font-family: var(--latin-display);
   font-size: clamp(20px, 2.9vw, 34px);
   letter-spacing: .01em;
+  color: var(--ink-3);
+  transform: translateY(-.16em);
+}
+/* 英文模式主次互换：Danny Li 当大标题，中文名缩成注解 */
+html[lang="en"] .name .latin {
+  font-size: clamp(52px, 9.4vw, 96px);
+  letter-spacing: -.02em;
+  color: var(--ink);
+  transform: none;
+}
+html[lang="en"] .name .name-zh {
+  font-family: var(--cjk-serif);
+  font-weight: 700;
+  font-size: clamp(20px, 2.9vw, 34px);
+  letter-spacing: .02em;
   color: var(--ink-3);
   transform: translateY(-.16em);
 }
@@ -724,11 +768,14 @@ body.is-locked { overflow: hidden; }
 }
 
 @media (max-width: 620px) {
-  html { scroll-padding-top: 92px; }
-  .nav-inner { height: auto; padding: 10px 0; }
+  html { scroll-padding-top: 96px; }
+  .nav-inner { height: auto; padding: 9px 0; flex-wrap: wrap; row-gap: 6px; }
   .nav-mark { display: none; }
-  /* 七个链接排成 4+3 两行，比自然换行（6+1）整齐，点击区也够大 */
+  /* 语言开关独占第一行右侧，七个链接排成 4+3 两行 */
+  .lang { order: -1; margin-left: auto; }
   .nav-links {
+    width: 100%;
+    margin-left: 0;
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 7px 10px;
